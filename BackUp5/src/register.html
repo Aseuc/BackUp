@@ -1,0 +1,204 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script defer src="database.js"></script>
+    <script defer src="register.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="registration.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="back.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="database.js"></script>
+
+    <title>Thesis Management</title>
+</head>
+<body style="background-color: #04316a;">
+<header>
+    <h1 style="color: white">Registrierung!</h1>
+</header>
+<main>
+    <div id="container" class="container justify-content-center" style="display:inline-block; margin: 2rem">
+        <div class="row row justify-content-center">
+        <form  id="loginForm" class="login form">
+            <li>
+            <label for="username" style="color: white;">Nutzername:</label> <input autofocus id="username" name = "username" required type="text">
+            </li>
+            <li>
+            <label for="fistname" style = "color: white">Vorname: </label> <input id="firstname" name="firstname" required type="text">
+            </li>
+            <li>
+            <label for="lastname" style="color: white;">Nachname: </label> <input name = "lastname" id="lastname" required type="text">
+            </li> 
+        
+            
+            <li>
+            <label for="password1" style="color: white;">Passwort:</label> <input type="password" name="password1" required id="password1" />
+            </li>
+            
+            <li>
+            <label for="password2" style="color: white;">Passwort bestätigen:</label> <input type="password" name="password2" required id="password2" />
+            </li>
+
+            <li>
+            <label for="department" style="color: white;">Lehrstuhl: </label> <input id="department" name = "department" required type="text">
+            </li>
+            <li>
+               <label for="email" style="color: white;">E-Mail:</label> <input id="email" name="email" type="email">
+            <p id="result"></p>
+            </li>
+        </form>
+    </div>  
+        <button id ="submitButton" onclick="submitRegistration()">Submit!</button>
+        </d>
+        <div id="status"></div>
+        <button onclick="backToLogin()">Zurück zum Loign!</button>
+    
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+<footer style="background-color:#c50f3c">
+    <img alt="wiso-image" src="img/wiso.png">
+</footer>
+</body>
+</html>
+ -->
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script defer src="register.js"></script>
+    <script defer src="back.js"></script>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script defer src="database.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Thesis Management</title>
+</head>
+<body>
+<body style="background-color: #04316a">
+    <section class="vh-80" style="background-color: #04316a;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body w">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx">Registrierung</p>
+  
+                  <form class="mx-1 mx-md-4" id = "loginForm">
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input  id="reputation" name = "reputation" required type="text" class="form-control" />
+                        <label class="form-label" for="reputation">Title</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input  id="lastname" name = "lastname" required type="text" class="form-control" />
+                          <label class="form-label" for="lastname">Nachname</label>
+                        </div>
+                      </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="firstname" name="firstname" class="form-control" />
+                        <label class="form-label"  for="firstname">Vorname</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" id="password" name = "password" class="form-control" />
+                        <label class="form-label" for="password">Passwort</label>
+                      </div>
+                    </div>
+                    
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" id="department" name = "department" class="form-control" />
+                        <label class="form-label" for="department">Lehrstuhl</label>
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="email" id="email"  onchange="validate()"name = "email" class="form-control" />
+                          <label class="form-label" for="email">E-Mail:</label> 
+                          <p id="result"></p>
+                        </div>
+                      </div>
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="button" onclick="submitRegistration()" class="btn btn-primary btn-lg">Registerieren!</button>
+                      <p id="result" ></p>
+                    </div>
+  
+                  </form>
+  
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                    <img src="img/wiso.png"class="img-fluid">
+  
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer style="height: 101px; background-color: #c50f3c;" class="mt-4">  <img src="img/wiso.png"
+                    style ="height: 80px; margin-top: 10px; margin-left: 10px; background-color: white; border-radius: 60px;"class="img-fluid"></footer>
+</body>
+
+</html>

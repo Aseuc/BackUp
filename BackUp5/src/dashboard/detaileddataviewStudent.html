@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script defer src="../database.js"></script>
+  <script defer src="../app/thesis-registration/thesis.service.js"></script>
+  <script defer src="../app/thesis-registration/tableManager.js"></script>
+  <script defer src="dashboard.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
+
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" ></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+  
+  <title>Thesis Management</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #c50f3c;">
+    <a class="navbar-brand order-0" href="#">Thesis Management </a>
+    <button class="navbar-toggler order-2" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse order-3" id="navbarNavDropdown">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" onclick="homeView()">
+            Home<span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" href="#" >
+            Ansicht<span class="sr-only">(current)</span>
+          </a>
+          <div class="dropdown-menu" style=" background-color: #113f79;" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" onclick="dataView2()" href="#">Betreueransicht</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#" onclick="dataView()">Eingetroffen Arbeit Ansicht</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#" onclick="dataViewRegistrations()">Registrierungen</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#" onclick="dataViewStudents()">Studriendenansicht</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Formulare
+          </a>
+          <div class="dropdown-menu" style=" background-color: #113f79;" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" onclick="superVisorView()" href="#">Betreuer
+              erfassen</a>
+              <a class="dropdown-item" style="color: white; background-color: #113f79;" onclick="deleteSuperVisor()" href="#">Betreuer
+                löschen</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#">Gutachten erfassen</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#">Studenten erfassen</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#"
+              onclick="receivedThesisView()">Bachelor-/Masterarbeit
+              erfassen</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Optionen</a>
+          <div class="dropdown-menu" style="color: white; background-color: #113f79;"
+            aria-labelledby="navbarDropdownMenuLink">
+
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="../">Log
+              out!</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#">Einstellungen</a>
+            <a class="dropdown-item" style="color: white; background-color: #113f79;" href="#">Dark Mode/Light Mode</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content 
+  
+  
+  -->
+
+  <!-- recorde received thesis 
+  
+  -->
+
+<!-- detailedViewStudent -->
+
+<!--     <div id="detaileddataViewStudent"  class="table table-bordered ">
+      <div class="row row "> 
+        <div class="col-6 menu">
+          <div class="d-flex align-items-end">
+            <h3 >Studierendenansicht</h1>
+            </div>
+              <div style="display: block;">
+              <table class="table" id="table5" cellpading="10">
+                <thead>
+                  <tr>
+                    <th>Laufende Nummer:</th>
+                    <th>Betreuer:</th>
+                    <th>Vorname:</th>
+                    <th>Nachname:</th>
+                    <th>E-Mail:</th>
+                    <th>Adresse:</th>
+                    <th>PLZ:</th>
+                    <th>Ort:</th>
+                    <th>Semester:</th>
+                    <th>Studiengang:</th>
+                    <th>Schwerpunkt</th>
+                    <th>Abschluss:</th>
+                    <th>Art der Arbeit:</th>
+                    <th>Thema:</th>
+                    <th>Anmeldung der Arbeit am:</th> 
+                    <th>Anmeldung der Arbeit ans postalisch ans Prüfungsamt verschickt am:</th>
+                    <th>Anmeldung der Arbeit ans elektronisch ans Prüfungsamt verschickt am:</th>
+                    <th>Anmeldung der Arbeit bestätigt durch Prüfungsamt am:</th>
+                  </tr>
+                </thead>
+                <hr>
+                <tfoot>
+            </tfoot> <tbody id="tableBody5" class="scoreboardTable-Body"></tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+ -->
+
+
+
+ 
+ <div class="row row justify-content-center">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Studentenbezogenedaten:</h5>
+          <table> 
+            <p class="card-text" id="studentLastname" >Matrikelnummer:</p> 
+            <p class="card-text" id="studentLastname" >Nachname:</p> 
+            <p class="card-text" id="studentFirstname">Vorname:</p>
+            <p class="card-text" id = "studentAddress">Adresse: </p>
+            <p class="card-text" id = "studentPostcode">PLZ:</p>
+            <p class="card-text" id = "studentCity">Ort:</p>
+            <p class="card-text" id = "studentEmail">E-Mail:</p>
+          </table>
+        </div>
+      </div>
+   
+    <div class="col-sm-6"> </div>
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Anmeldedaten:</h5>
+          <table> 
+            <p class="card-text" id="studentLastname" >Anmeldung der Arbeit am:</p> 
+            <p class="card-text" id="studentFirstname">Anmeldung der Arbeit postalisch ans Prüfungsamt verschickt:</p>
+            <p class="card-text" id = "studentAddress">Anmeldung der Arbeit elektronisch ans Prüfungsamt verschickt: </p>
+            <p class="card-text" id = "studentPostcode">Anmeldung der Arbeit bestätigt durchs Prüfungsamt am:</p>
+          </table>
+        </div>
+      </div>
+      <div class="col-sm-3"> </div>
+      <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Abschlussarbeitsbezogenedaten:</h5>
+            <table> 
+                <p class="card-text" id="studentDiploma " >Abschluss:</p> 
+                <p class="card-text" id="studentDegree">Studiengang:</p>
+                <p class="card-text" id = "studentmainEmphasis">Schwerpunkt: </p>
+                <p class="card-text" id = "studentTypeOfWork">Art der Arbeit:</p>
+                <p class="card-text" id = "studentTopic">Thema:</p>
+              </table>
+        </div>
+      </div> 
+    
+    <div class="col-sm-3"></div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Betreuer des Abschlussarbeit:</h5>
+            <table> 
+                <p class="card-text" id="supervisorLastname" >Nachname:</p> 
+                <p class="card-text" id="supervisorFirstname">Vorname:</p>
+            </table>
+          </div>
+        </div>
+     </div>
+      </div>
+  </div>
+
+
+
+
+</body>
+
+</html>
+
+<body>
+  <header>
+  </header>

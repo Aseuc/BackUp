@@ -1,0 +1,27 @@
+.container {
+  max-width: unset;
+  min-width: 700px !important;
+  align-items: center;
+}
+.menu {
+ 
+  border-radius: 0;
+  padding: 20px;
+  width: 100%;
+  font-size: 11px;
+  color: black;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  text-align: center;
+  
+  text-decoration: none;
+}
+
+#item div{
+  max-width: 100%;
+}
+
+th {
+  margin: 1rem;
+}
